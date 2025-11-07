@@ -1,7 +1,6 @@
 name: oaml_benchmark
 channels:
   - conda-forge
-  - defaults
 dependencies:
   - _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=2_gnu
@@ -101,4 +100,4 @@ dependencies:
       - wcwidth==0.2.13
       - yaspin==2.5.0
       - zipp==3.20.2
-prefix: /gpfs/helios/home/etais/hpc_alimahar/.conda/envs/oaml_benchmark
+prefix: /home/ali_work/.miniforge3/envs/oaml_benchmark
