@@ -43,6 +43,9 @@ parser.add_argument("--EAML_population_size", type=int, help="EAML population si
 parser.add_argument("--EAML_sampling_size", type=int, help="EAML sampling size")
 parser.add_argument("--EAML_sampling_rate", type=int, help="EAML sampling rate")
 
+#CHACHA
+parser.add_argument("--CHACHA_ensemble_size", type=int, help="ChaCha Live Models")
+
 args = parser.parse_args()
 
 model_name=args.model_name
@@ -77,6 +80,12 @@ elif model_name == 'eaml':
         '--population_size', str(args.EAML_population_size),
         '--sampling_size', str(args.EAML_sampling_size),
         '--sampling_rate', str(args.EAML_sampling_rate),
+        '--seed', str(args.seed)
+    ]
+elif model_name == 'chacha':
+    command = [
+        'python', 'chacha_run.py', dataset_name, 
+        '--ensemble_size', str(args.CHACHA_ensemble_size),
         '--seed', str(args.seed)
     ]
 else:

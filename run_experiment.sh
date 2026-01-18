@@ -62,7 +62,7 @@ datasets=(
     skmul_Waveform
 )
 
-models=(ac eaml oaml asml hatc arfc srpc)
+models=(ac eaml oaml asml hatc arfc srpc chacha)
 
 
 
@@ -83,15 +83,11 @@ asml_exploration_window_options=(1000 2000 3000)
 asml_ensemble_size_options=(1 2 3 4)
 asml_budget_options=(5 10 15)
 
-asml_exploration_window_options=(1000 2000 3000)
-asml_ensemble_size_options=(2 3 4 5)
-asml_budget_options=(5 10 15)
-
 eaml_population_size_options=(5 10 20)
 eaml_sampling_size_options=(1 2 3)
 eaml_sampling_rate_options=(1000 2000 3000)
 
-
+chacha_ensemble_size_options=(5)
 
 
 echo "Experiment start"
@@ -154,6 +150,16 @@ for dataset in "${datasets[@]}"; do
               run_eaml_sbatch.sh --dataset_name "$dataset" --seed "$seed" --EAML_population_size "$population_size" --EAML_sampling_size "$sampling_size" --EAML_sampling_rate "$sampling_rate"
             done
           done
+        done
+      fi
+
+
+            # # ChaCha: Iterate over its parameters
+      if [[ "$model" == "chacha" ]]; then
+        for population_size in "${chacha_ensemble_size_options[@]}"; do
+              echo "Submitting EAML: dataset=$dataset seed=$seed population_size=$population_size sampling_size=$sampling_size sampling_rate=$sampling_rate"
+              sbatch --partition="$SBATCH_PARTITION" --cpus-per-task="$SBATCH_CPUS_PER_TASK" --mem="$SBATCH_MEM" --time="$SBATCH_TIME" \
+              run_eaml_sbatch.sh --dataset_name "$dataset" --seed "$seed" --EAML_population_size "$population_size" --EAML_sampling_size "$sampling_size" --EAML_sampling_rate "$sampling_rate"
         done
       fi
 
