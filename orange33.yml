@@ -211,4 +211,4 @@ dependencies:
       - url-normalize==1.4.3
       - xlrd==2.0.1
       - xlsxwriter==3.2.2
-prefix: /home/ali_ai/miniforge3/envs/orange33
+
