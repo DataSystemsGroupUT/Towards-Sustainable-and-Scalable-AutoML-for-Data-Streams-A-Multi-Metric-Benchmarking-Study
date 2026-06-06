@@ -129,5 +129,5 @@ Due to the size of the raw results (~75GB), we could not include them in the Git
 Main experiment results: https://f003.backblazeb2.com/file/7rTSHacdvd/experiment-results.zip  <br>
 Subset experiments results with AMD CPU: https://f003.backblazeb2.com/file/7rTSHacdvd/experiment-results_AMD.zip  <br>
 Subset experiments results with Intel CPU: https://f003.backblazeb2.com/file/7rTSHacdvd/experiment-results_Intel.zip  <br>
-After download extract zip files in project directory with directory from .zip file. <br>
+After downloading, extract the zip files into the project directory. If duplicate file name conflicts appear, choose the option to replace files. <br>
 Zip files are ~25GB and the extracted contents are ~75GB. Therefore, more than 100 GB of free space is needed to reliably download and extract the file.
